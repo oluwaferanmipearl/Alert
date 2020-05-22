@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_game"
+            android:icon="@drawable/ic_games_black_24dp"
+            android:title="COVIDAlert Quiz" />
+        <item
+            android:id="@+id/nav_cases"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Total Cases" />
+        <item
+            android:id="@+id/nav_symptoms"
+            android:icon="@drawable/ic_label_outline_black_24dp"
+            android:title="Symptoms" />
+        <item
+            android:id="@+id/nav_spread"
+            android:icon="@drawable/ic_group_black_24dp"
+            android:title="How it Spreads" />
+        <item
+            android:id="@+id/nav_prevent"
+            android:icon="@drawable/ic_stop_black_24dp"
+            android:title="Prevention" />
+
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share_black_24dp"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send_black_24dp"
+                android:title="Send" />
+
+        </menu>
+    </item>
+
+</menu>
