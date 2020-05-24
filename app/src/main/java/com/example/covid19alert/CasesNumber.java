@@ -3,9 +3,9 @@ package com.example.covid19alert;
 public class CasesNumber {
 
     private String mCountry;
-    private int mRecovered;
-    private int mDeath;
-    private int mActivecases;
+    private String mRecovered;
+    private String mDeath;
+    private String mActivecases;
 
     public CasesNumber(){}
 
@@ -13,15 +13,15 @@ public class CasesNumber {
         return mCountry;
     }
 
-    public int getmRecovered() {
+    public String getmRecovered() {
         return mRecovered;
     }
 
-    public int getmDeath() {
+    public String getmDeath() {
         return mDeath;
     }
 
-    public int getmActivecases() {
+    public String getmActivecases() {
         return mActivecases;
     }
 
@@ -29,15 +29,15 @@ public class CasesNumber {
         this.mCountry = mCountry;
     }
 
-    public void setmRecovered(int mRecovered) {
+    public void setmRecovered(String mRecovered) {
         this.mRecovered = mRecovered;
     }
 
-    public void setmDeath(int mDeath) {
+    public void setmDeath(String mDeath) {
         this.mDeath = mDeath;
     }
 
-    public void setmActivecases(int mActivecases) {
+    public void setmActivecases(String mActivecases) {
         this.mActivecases = mActivecases;
     }
 }

@@ -37,10 +37,10 @@ public class TotalCases extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total_cases);
-         mQueue = Volley.newRequestQueue(TotalCases.this) ;
+        mQueue = Volley.newRequestQueue(TotalCases.this);
 
         //to bring in the back button
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // to put in color to the action bar
         ActionBar actionBar;
         actionBar = getSupportActionBar();
@@ -48,30 +48,36 @@ public class TotalCases extends AppCompatActivity {
         actionBar.setBackgroundDrawable(colorDrawable);
         // to change the color of the status bar ie the top most part of the android page
         Window window = this.getWindow();
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
 
-        final ArrayList<CasesNumber>  casesnumber = new ArrayList<>();
+        final ArrayList<CasesNumber> casesnumber = new ArrayList<>();
 
-        JsonArrayRequest  casesReq = new JsonArrayRequest( url, new Response.Listener<JSONArray>() {
+        JsonArrayRequest casesReq = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
-                for (int i = 0; i< response.length(); i++) {
+                for (int i = 0; i < response.length(); i++) {
 
-                        try {
-                            JSONObject obj = response.getJSONObject(i);
-                            CasesNumber casesNumber = new CasesNumber();
-                            casesNumber.setmCountry(obj.getString("country"));
-                            casesNumber.setmActivecases(obj.getInt("infected"));
-                            casesNumber.setmDeath(obj.getInt("deceased"));
-                            casesNumber.setmRecovered(obj.getInt("recovered"));
+                    try {
+                        JSONObject obj = response.getJSONObject(i);
+                        CasesNumber casesNumber = new CasesNumber();
+                        casesNumber.setmCountry(obj.getString("country"));
+                        casesNumber.setmActivecases(obj.getString("infected"));
+                        casesNumber.setmDeath(obj.getString("deceased"));
+                        casesNumber.setmRecovered(obj.getString("recovered"));
 
-                            casesnumber.add(casesNumber);
+                        casesnumber.add(casesNumber);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                    ListView casesListview = findViewById(R.id.listView);
+                    CasesNumberAdapter adapter = new CasesNumberAdapter(getApplicationContext(), casesnumber);
+                    casesListview.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
 
 
                 }
@@ -84,10 +90,7 @@ public class TotalCases extends AppCompatActivity {
             }
         });
 
-        mQueue.add(casesReq );
-        ListView casesListview = findViewById(R.id.listView);
+        mQueue.add(casesReq);
 
-        CasesNumberAdapter adapter = new CasesNumberAdapter(this,casesnumber);
-        casesListview.setAdapter(adapter);
     }
 }
