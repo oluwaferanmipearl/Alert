@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".QuizStart"
     android:background="@drawable/cd"
-
     >
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="370dp"

@@ -7,6 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".TotalCases"
     android:background="@drawable/cd">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Pls, check your data connection"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:id="@+id/data"
+        />
+
 
 
             <ListView

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.jar.JarException;
@@ -38,7 +40,7 @@ public class TotalCases extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total_cases);
         mQueue = Volley.newRequestQueue(TotalCases.this);
-
+        TextView data = findViewById(R.id.data);
         //to bring in the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // to put in color to the action bar
@@ -49,6 +51,7 @@ public class TotalCases extends AppCompatActivity {
         // to change the color of the status bar ie the top most part of the android page
         Window window = this.getWindow();
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
+
 
 
         final ArrayList<CasesNumber> casesnumber = new ArrayList<>();
@@ -91,6 +94,8 @@ public class TotalCases extends AppCompatActivity {
         });
 
         mQueue.add(casesReq);
+
+
 
     }
 }

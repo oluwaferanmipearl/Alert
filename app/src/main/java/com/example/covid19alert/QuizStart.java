@@ -91,6 +91,7 @@ public class QuizStart extends AppCompatActivity {
             if(!answered){
                 startCountDown();
             }else{
+                answer();
                 updateCountDownText();
                 showSolution();
             }
@@ -179,33 +180,50 @@ public class QuizStart extends AppCompatActivity {
         if (answerNr == currentQuestion.getAnswerNr()) {
             score++;
             TextScore.setText("Score: " + score);
+            answer();
+        }else{
+            showSolution();
         }
-        showSolution();
+
     }
 
     private void showSolution() {
-        rb1.setTextColor(Color.RED);
-        rb2.setTextColor(Color.RED);
-        rb3.setTextColor(Color.RED);
-        switch (currentQuestion.getAnswerNr()) {
-            case 1:
-                rb1.setTextColor(Color.GREEN);
-                textQuestion.setText("Answer 1 is correct");
-                break;
-            case 2:
-                rb2.setTextColor(Color.GREEN);
-                textQuestion.setText("Answer 2 is correct");
-                break;
-            case 3:
-                rb3.setTextColor(Color.GREEN);
-                textQuestion.setText("Answer 3 is correct");
-                break;
+        RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
+        int answerNr = rbGroup.indexOfChild(rbSelected) + 1;
+        if (answerNr != currentQuestion.getAnswerNr()) {
+            rb1.setTextColor(Color.RED);
+            rb2.setTextColor(Color.RED);
+            rb3.setTextColor(Color.RED);
+            switch (currentQuestion.getAnswerNr()) {
+                case 1:
+                    rb1.setTextColor(Color.GREEN);
+                    textQuestion.setText("Option 1 is correct");
+                    break;
+                case 2:
+                    rb2.setTextColor(Color.GREEN);
+                    textQuestion.setText("Option 2 is correct");
+                    break;
+                case 3:
+                    rb3.setTextColor(Color.GREEN);
+                    textQuestion.setText("Option 3 is correct");
+                    break;
+            }
+            if (questionCounter < questionCountTotal) {
+                buttonText.setText("Next");
+            } else {
+                buttonText.setText("Finish");
+            }
         }
-        if (questionCounter < questionCountTotal) {
-            buttonText.setText("Next");
-        } else {
-            buttonText.setText("Finish");
+    }
+
+    private void answer(){
+        RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
+        int answerNr = rbGroup.indexOfChild(rbSelected) + 1;
+        if (answerNr == currentQuestion.getAnswerNr()){
+            showNextQuestion();
+
         }
+
     }
 
     private void finishQuiz() {
