@@ -6,13 +6,21 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -32,6 +40,8 @@ import java.util.jar.JarException;
 public class TotalCases extends AppCompatActivity {
     private static final String url = "https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true";
     private RequestQueue mQueue;
+    EditText inputSearch;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -40,7 +50,10 @@ public class TotalCases extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total_cases);
         mQueue = Volley.newRequestQueue(TotalCases.this);
-        TextView data = findViewById(R.id.data);
+        final TextView Textprogress = findViewById(R.id.textProgress);
+        inputSearch = findViewById(R.id.inputSearch);
+
+
         //to bring in the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // to put in color to the action bar
@@ -52,6 +65,13 @@ public class TotalCases extends AppCompatActivity {
         Window window = this.getWindow();
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary));
 
+        //To add a timer on the TextView
+        Textprogress.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Textprogress.setVisibility(View.INVISIBLE);
+            }
+        }, 5000);
 
 
         final ArrayList<CasesNumber> casesnumber = new ArrayList<>();
@@ -95,7 +115,38 @@ public class TotalCases extends AppCompatActivity {
 
         mQueue.add(casesReq);
 
+        //to insert a search button into my Totalcases.java
+        inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                int textlength = charSequence.length();
+                ArrayList<CasesNumber> casesnumber1 = new ArrayList<>();
+                for (CasesNumber c : casesnumber) {
+                    if (textlength <= c.getmCountry().length()) {
+                        if (c.getmCountry().toLowerCase().contains(charSequence.toString().toLowerCase())) {
+                            casesnumber1.add(c);
+                        }
+                    }
+                }
+                ListView casesListview = findViewById(R.id.listView);
+                CasesNumberAdapter adapter = new CasesNumberAdapter(getApplicationContext(), casesnumber1);
+                casesListview.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
 
     }
+
+
 }

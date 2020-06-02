@@ -21,6 +21,7 @@
         <activity
             android:name=".TotalCases"
             android:label="Total Cases"
+            android:windowSoftInputMode="stateHidden"
             android:parentActivityName=".MainActivity"
             android:theme="@style/ActionBar" />
 

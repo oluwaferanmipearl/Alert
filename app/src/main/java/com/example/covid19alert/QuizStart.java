@@ -171,7 +171,6 @@ public class QuizStart extends AppCompatActivity {
     }
 
 
-
     private void checkAnswer() {
         answered = true;
         countDownTimer.cancel();

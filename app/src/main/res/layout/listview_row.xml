@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="10dp"
@@ -8,15 +8,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
 
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Country"
+            android:text="Country: "
             android:textSize="15dp"
             android:textColor="#000000"
             />
@@ -25,6 +25,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Country"
+            android:textStyle="bold"
+            android:textAllCaps="true"
             android:id="@+id/country"
             android:textSize="15dp"
             android:textColor="#000000"
@@ -35,15 +37,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
 
         >
     <TextView
         android:layout_width="wrap_content"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:text="Active Cases"
+        android:text="Active Cases: "
         android:textSize="15dp"
         android:textColor="#008000"
         />
@@ -60,15 +62,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
 
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Recovered"
+            android:text="Recovered: "
             android:textSize="15dp"
             android:textColor="#ffd300"
             />
@@ -85,15 +87,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
 
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Death"
+            android:text="Death: "
             android:textSize="15dp"
             android:textColor="@color/colorPrimary"
             />

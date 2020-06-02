@@ -5,22 +5,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".TotalCases"
     android:background="@drawable/cd">
-    <TextView
-        android:layout_width="wrap_content"
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+       android:textSize="20dp"
+       android:textStyle="bold"
+       android:textAlignment="center"
+       android:textColor="@color/white"
+       android:text="Pls,Check your Internet connection.\nLoading..."
+       android:id="@+id/textProgress"/>
+
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Pls, check your data connection"
-        android:textSize="20dp"
-        android:textColor="#ffffff"
-        android:id="@+id/data"
+        android:hint="Search Countries:"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:background="@color/white"
+        android:id = "@+id/inputSearch"
         />
-
-
 
             <ListView
                 android:layout_width="match_parent"
+                android:layout_below="@id/inputSearch"
                 android:layout_height="match_parent"
                 android:id="@+id/listView"
                 />

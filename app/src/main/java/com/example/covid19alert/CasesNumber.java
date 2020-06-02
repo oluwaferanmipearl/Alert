@@ -4,6 +4,7 @@ public class CasesNumber {
 
     private String mCountry;
     private String mRecovered;
+
     private String mDeath;
     private String mActivecases;
 

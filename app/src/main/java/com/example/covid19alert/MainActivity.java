@@ -10,7 +10,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView textViewHighscore;
     private TextView textViewpresentScore;
     private int highscore;
-    private int presentScore;
+
 
 
     @Override
@@ -63,8 +62,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setSupportActionBar(toolbar);
 
-        //navigation view
 
+
+
+        //navigation view
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setCustomTitle(title);
 
         TextView msg = new TextView(this);
-        msg.setText("You'll have 20 seconds\nto answer each questions.\n \n Scores: \n15-20 CovGenius.\n10-14 Average.\n5-9 Study more.\n0-4 CovIdiot.");
+        msg.setText("You'll have 20 seconds\nto answer each questions.\n \n Scores: \n15-20 CovGenius.\n10-14 Average.\n5-9 Study more.\n0-4 Very poor.");
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
         msg.setTextSize(23);

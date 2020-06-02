@@ -29,7 +29,7 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_marginTop="250dp"
+           android:layout_marginTop="230dp"
             android:layout_centerHorizontal="true"
             android:text="COVID 19 AWARENESS!"
             android:textColor="@color/white"
